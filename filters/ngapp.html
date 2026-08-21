@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Application</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="namesCtrl">
+        <input type="text"
+               ng-model="searchText"
+               placeholder="search name or country">
+        <br><br>
+        <select ng-model="selectedCountry">
+            <option value="">All Countries</option>
+            <option value="Norway">Norway</option>
+            <option value="Sweden">Sweden</option>
+            <option value="England">England</option>
+            <option value="Denmark">Denmark</option>
+        </select>
+        <br><br>
+        <ul>
+            <li ng-repeat="x in names | filter:searchText | filter:{country:selectedCountry}">
+                {{x.name}} - {{x.country}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller("namesCtrl", function($scope) {
+            $scope.names = [
+                {name: "John", country: "Norway"},
+                {name: "Anna", country: "Sweden"},
+                {name: "Peter", country: "England"},
+                {name: "David", country: "Denmark"}
+            ];
+        });
+    </script>
+</body>
+</html>

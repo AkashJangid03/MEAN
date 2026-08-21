@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Number Filters</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-app="numberApp">
+
+    <div ng-controller="NumberController">
+        <p>{{ number | number:3 }}</p>
+    </div>
+
+    <script>
+        let app = angular.module("numberApp", []);
+
+        app.controller("NumberController", function($scope) {
+            $scope.number = 1234113543512;
+        });
+    </script>
+
+</body>
+</html>

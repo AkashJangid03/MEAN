@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interval Service</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="intervalApp" ng-controller="intervalController">
+    <p>
+        THe location of the current system:  <br><br> {{ theTime }}
+    </p>
+    <script>
+        var app = angular.module('intervalApp', []); 
+        app.controller('intervalController', function($scope, $interval){
+            $scope.theTime = new Date().toLocaleTimeString();
+            $interval(function() {
+                $scope.theTime = new Date().toLocaleTimeString(); }, 1000);
+            });
+    </script>
+</body>
+</html>
+
+<!-- 
+<body ng-app="intervalApp" ng-controller="intervalController">
+    <p>
+        THe location of the current system:  <br><br> {{ theTime }}
+    </p>
+    <script>
+        var app = angular.module('intervalApp', []); 
+        app.controller('intervalController', function($scope, $interval){
+            $scope.theTime = new Date().toLocaleTimeString();
+            $interval(function() {
+                $scope.theTime = new Date().toLocaleTimeString(); }, 1000);
+            });
+    </script>
+-->

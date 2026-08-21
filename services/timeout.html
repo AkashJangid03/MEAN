@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Timeout Service</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="locationApp" ng-controller="timeoutController">
+    <p>
+        The example uses the built-in $timeout service 2 seconds:
+        <br><br>
+        <h1>{{myHeader}}</h1>
+    </p>
+    <script>
+        var app = angular.module('locationApp', []);
+        app.controller('timeoutController', function($scope, $timeout) {
+            $scope.myHeader = "You are Dead";
+
+            $timeout(function() {
+                $scope.myHeader = "nah, Alive";
+            }, 2000);
+            
+            $timeout(function() {
+                $scope.myHeader = "No you are not";
+            }, 6000);
+        });
+    </script>
+</body>
+</html>

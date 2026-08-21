@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Location Service</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body  ng-app="locationApp" ng-controller="LocationController">
+    <p>The example uses the  built-in $location service to get the location: 
+        <br><br> {{ absURL }}</p>
+    <script>
+        var app = angular.module("locationApp", []);
+        app.controller("LocationController", function($scope, $location) {
+            $scope.absURL = $location.absUrl();
+        });
+    </script>
+</body>
+</html>
