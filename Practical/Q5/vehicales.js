@@ -1,0 +1,26 @@
+const VEHICALES=[
+    {
+        index:1,
+        brand:"TATA",
+        price:20000,
+        color:"Black"
+    },
+    {
+        index:2,
+        brand:"TATA",
+        price:20000,
+        color:"Black"
+    },
+    {
+        index:3,
+        brand:"TATA",
+        price:20000,
+        color:"Black"
+    },
+    {
+        index:4,
+        brand:"TATA",
+        price:20000,
+        color:"Black"
+    },
+]

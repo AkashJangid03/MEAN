@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q2</title>
+</head>
+<body>
+    <form onsubmit="validate(event)">
+        <div>
+            <label for="dob">DOB</label>
+            <input type="date" name="dob" id="dob">
+            <div id="dob-error"></div>
+        </div>
+
+        <div>
+            <label for="joining-date">Joining Data</label>
+            <input type="date" name="joining-date" id="joining-date">
+            <div id="joining-error"></div>
+        </div>
+
+        <div>
+            <label for="salary">Salary</label>
+            <input type="text" name="salary" id="salary">
+            <div id="salary-error"></div>
+        </div>
+
+        <button type="submit" onclick="validate(event)">Submit</button>
+
+    </form>
+    <script src="index.js"></script>
+</body>
+</html>
