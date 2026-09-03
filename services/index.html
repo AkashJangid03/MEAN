@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="locationApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+
+    <div ng-controller="LocationController">
+        <p >{{absURL}}</p>
+        <p>{{relativeURL}}</p>
+        <p>{{path}}</p>
+    </div>
+
+    <div ng-controller="HTTPController">
+       <iframe src="{'result'}" frameborder="0">
+        {{refinedata}}
+       </iframe>
+    </div>
+
+    <div ng-controller="TimeOutController">
+        <p>{{preMSG}}{{msg}}</p>
+    </div>
+
+    <div ng-controller="TimeController">
+        {{timer}}<br>
+        {{timer1}}
+    </div>
+    <script>
+        let app = angular.module("locationApp",[]);
+
+        app.controller("LocationController", function($scope, $location){
+            $scope.absURL = $location.absUrl();
+            $scope.relativeURL = $location.url();
+            $scope.path = $location.path();
+
+        })
+
+        app.controller("HTTPController", function($scope, $http){
+            $http.get("result.html").then(function(res){
+                $scope.result = res.data;
+                $scope.refinedata = result.json();
+            })
+        })
+
+        app.controller("TimeOutController",function($scope, $timeout){
+            $scope.preMSG = "pre msg";
+            $timeout(function(){
+                $scope.msg = "Time out msg";
+            },3000);
+        })
+
+        app.controller("TimeController",function($scope, $interval){
+            $scope.timer = new Date().toLocaleTimeString();
+
+            $interval(function(){
+                $scope.timer1= new Date().toLocaleTimeString();
+            },1000)
+        })
+    </script>
+</body>
+</html>
