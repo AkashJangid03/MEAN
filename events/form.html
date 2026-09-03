@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="formApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js"></script>
+    <title>Form</title>
+</head>
+<body>
+
+    <div ng-controller="FormFieldController">
+        <input type="text" name="name" id="name" ng-model="name" placeholder="Enter the name"><br>
+        {{name}}
+
+        <select ng-model="selectCourse"
+                ng-options="course for course in courses">
+            <option value="">Select Course</option>
+        </select>
+
+        <br><br>
+
+        Selected Course: {{selectCourse}}
+        <br><br><br>
+
+        <textarea name="" id="" cols="30" rows="10" ng-model="comment"></textarea>
+        <br>
+        {{comment}}
+    </div>
+    <script>
+        const app = angular.module("formApp",[]);
+
+        app.controller("FormFieldController",function($scope){
+            $scope.name="";
+            $scope.courses=["MSc.CA", "MSc.CS", "BSc.CS", "BSc.CA"];
+            $scope.comment="";
+        })
+    </script>
+</body>
+</html>

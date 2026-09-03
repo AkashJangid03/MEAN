@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html ng-app="studentApp">
+
+<head>
+    <title>Student List</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-controller="StudentController">
+
+    <h2>Student List</h2>
+
+    <button ng-click="loadStudents()">Load Students</button>
+
+    <p ng-if="loading">Loading students...</p>
+
+    <p ng-if="error">
+        {{ error }}
+    </p>
+
+    <table border="1" cellpadding="10" ng-if="students.length > 0">
+
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Contact</th>
+            <th>Course</th>
+        </tr>
+
+        <tr ng-repeat="student in students">
+
+            <td>{{ student.id }}</td>
+            <td>{{ student.name }}</td>
+            <td>{{ student.email }}</td>
+            <td>{{ student.contact }}</td>
+            <td>{{ student.course }}</td>
+
+        </tr>
+
+    </table>
+
+    <script>
+
+        var app = angular.module("studentApp", []);
+
+
+        app.service("StudentService", function($http) {
+
+            var apiUrl = "https://jsonplaceholder.typicode.com/users";
+            console.log(apiUrl)
+
+            this.getStudents = function() {
+
+                return $http.get(apiUrl);
+
+            };
+
+        });
+
+
+        app.controller("StudentController", function($scope, StudentService) {
+
+            $scope.students = [];
+            $scope.loading = false;
+            $scope.error = "";
+
+
+            $scope.loadStudents = function() {
+
+                $scope.loading = true;
+                $scope.error = "";
+
+                StudentService.getStudents()
+
+                    .then(function(response) {
+
+                        $scope.students = response.data;
+
+                    })
+
+                    .catch(function(error) {
+
+                        console.log(error);
+
+                        $scope.error = "Unable to retrieve student data.";
+
+                    })
+
+                    .finally(function() {
+
+                        $scope.loading = false;
+
+                    });
+            };
+
+        });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="studentApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js"></script>
+    <title>Student Information</title>
+</head>
+<body>
+
+    <div ng-controller="StudentInfoController">
+        <input type="text" name="name" id="name" placeholder="Name" ng-model="student.name"><br>
+        <input type="text" name="course" id="course" placeholder="Cource" ng-model="student.course"><br>
+        <input type="text" name="semester" id="semester" placeholder="College" ng-model="student.college"><br>
+        <input type="text" name="semester" id="semester" placeholder="Semester" ng-model="student.semester"><br>
+
+        <div>
+            Name : <span>{{student.name}}</span><br>
+            Cource : <span>{{student.cource}}</span><br>
+            College : <span>{{student.college}}</span><br>
+            Semester : <span>{{student.semester}}</span><br>
+        </div>
+    </div>
+    <script>
+        const app = angular.module("studentApp",[]);
+
+        app.controller("StudentInfoController",function($scope){
+            $scope.student={
+                name : "Ajay Ganesh kandhare",
+                cource : "MSC.CA",
+                college : "Fergusson College",
+                semester : "SEM-3"
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html ng-app="studentApp">
+<head>
+    <title>Student Registration</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+        }
+
+        .form-container {
+            width: 400px;
+            margin: 40px auto;
+            padding: 25px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px #ccc;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            box-sizing: border-box;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        .error {
+            color: red;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            background: #aaa;
+        }
+
+        .success {
+            color: green;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body ng-controller="StudentController">
+
+<div class="form-container">
+
+    <h2>Student Registration</h2>
+
+    <form name="studentForm" ng-submit="register(studentForm)" novalidate>
+
+        <label>Name</label>
+        <input type="text"
+               name="name"
+               ng-model="student.name"
+               required
+               ng-minlength="3">
+
+        <div class="error"
+             ng-show="studentForm.name.$touched && studentForm.name.$invalid">
+            <span ng-show="studentForm.name.$error.required">
+                Name is required.
+            </span>
+            <span ng-show="studentForm.name.$error.minlength">
+                Name must be at least 3 characters.
+            </span>
+        </div>
+
+
+        <label>Email</label>
+        <input type="email"
+               name="email"
+               ng-model="student.email"
+               required>
+
+        <div class="error"
+             ng-show="studentForm.email.$touched && studentForm.email.$invalid">
+            <span ng-show="studentForm.email.$error.required">
+                Email is required.
+            </span>
+            <span ng-show="studentForm.email.$error.email">
+                Enter a valid email address.
+            </span>
+        </div>
+
+
+        <label>Contact</label>
+        <input type="text"
+               name="contact"
+               ng-model="student.contact"
+               ng-pattern="/^[0-9]{10}$/"
+               required>
+
+        <div class="error"
+             ng-show="studentForm.contact.$touched && studentForm.contact.$invalid">
+            <span ng-show="studentForm.contact.$error.required">
+                Contact number is required.
+            </span>
+            <span ng-show="studentForm.contact.$error.pattern">
+                Contact must contain exactly 10 digits.
+            </span>
+        </div>
+
+
+        <label>Course</label>
+        <select name="course"
+                ng-model="student.course"
+                required>
+            <option value="">-- Select Course --</option>
+            <option value="BCA">BCA</option>
+            <option value="BBA">BBA</option>
+            <option value="BSc">B.Sc</option>
+            <option value="MCA">MCA</option>
+            <option value="MBA">MBA</option>
+        </select>
+
+        <div class="error"
+             ng-show="studentForm.course.$touched && studentForm.course.$error.required">
+            Please select a course.
+        </div>
+
+
+        <label>Semester</label>
+        <select name="semester"
+                ng-model="student.semester"
+                required>
+            <option value="">-- Select Semester --</option>
+            <option value="1">Semester 1</option>
+            <option value="2">Semester 2</option>
+            <option value="3">Semester 3</option>
+            <option value="4">Semester 4</option>
+            <option value="5">Semester 5</option>
+            <option value="6">Semester 6</option>
+        </select>
+
+        <div class="error"
+             ng-show="studentForm.semester.$touched && studentForm.semester.$error.required">
+            Please select a semester.
+        </div>
+
+
+        <button type="submit" ng-disabled="studentForm.$invalid">
+            Register
+        </button>
+
+        <div class="success" ng-show="success">
+            Registration successful!
+        </div>
+
+    </form>
+
+</div>
+
+
+<script>
+    var app = angular.module("studentApp", []);
+
+    app.controller("StudentController", function($scope) {
+
+        $scope.student = {};
+
+        $scope.register = function(form) {
+
+            if (form.$valid) {
+                console.log($scope.student);
+
+                $scope.success = true;
+
+                // Clear form after registration
+                // $scope.student = {};
+                // form.$setPristine();
+                // form.$setUntouched();
+            }
+        };
+
+    });
+</script>
+
+</body>
+</html>

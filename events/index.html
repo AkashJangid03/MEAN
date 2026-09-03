@@ -1,0 +1,62 @@
+ <!DOCTYPE html>
+ <html lang="en" ng-app="eventsApp">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js"></script>
+    <title>Events</title>
+ </head>
+ <body>
+        <div ng-controller="EventController">
+            <input type="checkbox" name="" id="" ng-model="BtnDisable">
+
+            <button ng-disabled="BtnDisable"  ng-click="messege= 'Button Click'">Click me</button>
+
+            {{messege}}
+
+            <button ng-click="showText=true">Show  Text</button>
+            <p ng-show="showText">Show  Text</p>
+
+            <button ng-click="hidetext=true">Hide  Text</button>
+            <p ng-hide="hidetext">Hide  Text</p>
+
+        </div>
+
+    <script>
+        const app = angular.module("eventsApp",[]);
+
+        app.controller("EventController",function($scope){
+            $scope.BtnDisable = false;
+            $scope.showText = false;
+            $scope.hidetext = false;
+            $scope.messege = "";
+        })
+
+
+        // ng-blur ng-change ng-click ng-copy ng-cut ng-dbl-click ng-focus ng-key ng-keyup ng-keydown ng-mouseover ng-mousedown ng-mouseenter
+    </script>
+ </body>
+ </html>
+
+ <!--
+ AngularJS Events
+An Events in AngularJS can be used to perform particular tasks, based on the action taken. Both Angular Event & the HTML Event will be executed & will not overwrite with an HTML Event. It can be added using the Directives mentioned below:
+
+ng-mousemove: The movement of the mouse leads to the execution of the event.
+ng-mouseup: Movement of the mouse upwards leads to the execution of the event.
+ng-mousedown: Movement of the mouse downwards leads to the execution of the event.
+ng-mouseenter: Click of the mouse button leads to the execution of the event.
+ng-mouseover: Hovering the mouse leads to the execution of the event.
+ng-cut: Cut operation leads to the execution of the event.
+ng-copy: Copy operation leads to the execution of the event.
+ng-keypress: Press of key leads to the execution of the event.
+ng-keyup: Press of upward arrow key leads to the execution of the event.
+ng-keydown: Press of downward arrow key leads to the execution of the event.
+ng-click: Single click leads to the execution of the event.
+ng-dblclick: Double click leads to the execution of the event.
+ng-blur: Fired when an HTML element loses its focus.
+ng-change: It is used whenever the value of an input element changes.
+ng-focus: It is used to apply custom behavior when an element is focused.
+ng-paste: It is used to specify custom behavior functions when the text in input fields is pasted into an HTML element.
+ng-mouseleave: It is used to apply custom behavior when a mouse-leave event occurs on a specific HTML element.
+-->

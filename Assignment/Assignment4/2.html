@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="studentApp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js"></script>
+    <title>Student Info</title>
+  </head>
+  <body>
+    <div ng-controller="StudentInfoController">
+      <div ng-repeat="student in students">
+        Name : <span>{{student.name}}</span><br />
+        Cource : <span>{{student.cource}}</span><br />
+        College : <span>{{student.college}}</span><br />
+        Semester : <span>{{student.semester}}</span><br />
+        <hr>
+      </div>
+    </div>
+    <script>
+      const app = angular.module("studentApp", []);
+
+      app.controller("StudentInfoController", function ($scope) {
+        $scope.students = [
+          {
+            name: "Rahul Sharma",
+            cource: "MSC.CA",
+            college: "Modern College",
+            semester: "SEM-1",
+          },
+          {
+            name: "Priya Patil",
+            cource: "MSC.CA",
+            college: "Fergusson College",
+            semester: "SEM-2",
+          },
+          {
+            name: "Rohan Kulkarni",
+            cource: "MCA",
+            college: "BMCC College",
+            semester: "SEM-3",
+          },
+          {
+            name: "Sneha Joshi",
+            cource: "MSC.IT",
+            college: "SP College",
+            semester: "SEM-4",
+          },
+          {
+            name: "Akash Deshmukh",
+            cource: "MCA",
+            college: "MIT College",
+            semester: "SEM-2",
+          },
+          {
+            name: "Neha More",
+            cource: "MSC.CS",
+            college: "Nowrosjee Wadia College",
+            semester: "SEM-1",
+          },
+          {
+            name: "Vikas Jadhav",
+            cource: "MSC.CA",
+            college: "Indira College",
+            semester: "SEM-3",
+          },
+          {
+            name: "Pooja Shinde",
+            cource: "MCA",
+            college: "Modern College",
+            semester: "SEM-4",
+          },
+        ];
+      });
+    </script>
+  </body>
+</html>

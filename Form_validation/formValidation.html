@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <title>Student Form</title>
+    <style>
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+        input.ng-invalid.ng-touched {
+            border: 1px solid red;
+        }
+        input.ng-valid.ng-touched {
+            border: 1px solid green;
+        }
+    </style>
+</head>
+<body ng-app="myApp">
+    <div ng-controller="FormController">
+        <h2>Student Form</h2>
+        <form name="studentForm"
+            ng-submit="submitForm()"
+            novalidate>
+<!-- Name -->
+            <label>Name: </label>
+            <input type="text" name="name" ng-model="student.name" required>
+            <span class="error" 
+                ng-show="studentForm.name.$touched && studentForm.name.$error.required">
+                Name is Required
+            </span><br><br>
+<!-- Email -->
+            <label>Email: </label>
+            <input type="email" name="email" ng-model="student.email" required>
+            <span class="error"
+                ng-show="studentForm.email.$touched && studentForm.email.$error.required">
+                Email is Required
+            </span>
+            <span class="error"
+                ng-show="studentForm.email.$touched && studentForm.email.$error.email">
+                Enter a vald email
+            </span><br><br>
+
+<!-- Password -->
+            <label>Password: </label>
+            <input type="password" name="password" ng-model="student.password" ng-minlength="6" required>
+            <span class="error" 
+                ng-show="studentForm.password.$touched && studentForm.password.$error.required">
+                Password is Required
+            </span>
+            <span class="error" 
+                ng-show="studentForm.password.$touched && studentForm.password.$error.minlength">
+                Password must contain at least6 characters
+            </span><br><br>
+
+<!-- Mobile -->
+            <label>Mobile: </label>
+            <input type="text" name="mobile" ng-model="student.mobile" ng-pattern="/^[0-9]{10}$/" required>
+            <span class="error" 
+                ng-show="studentForm.mobile.$touched && studentForm.mobile.$error.required">
+                Mobile Number is Required
+            </span>
+            <span class="error" 
+                ng-show="studentForm.mobile.$touched && studentForm.mobile.$error.pattern">
+                Enter 10 digit valid number
+            </span><br><br>
+
+<!-- Age -->
+            <label>Age: </label>
+            <input type="number" name="age" ng-model="student.age" min="18" max="60" required>
+            <span class="error" 
+                ng-show="studentForm.age.$touched && studentForm.age.$error.required">
+                Age is Required
+            </span>
+            <span class="error" 
+                ng-show="studentForm.age.$touched && 
+                    (studentForm.age.$error.min || studentForm.age.$error.max)">
+                Age must be between 18 - 60
+            </span><br><br>
+
+<!-- Submit -->
+            <button type="submit" ng-disabled="studentForm.$invalid"> 
+                Register
+            </button>
+
+        </form>
+        <br><br>
+
+        <p ng-if="submitted">
+            <strong>Registeration Completed!!</strong>
+        </p>
+    </div>
+
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller("FormController", function($scope) {
+            $scope.student = {};
+            $scope.submitted = false;
+            $scope.submitForm = function() {
+                if ($scope.studentForm.$valid) {
+                    $scope.submitted = true;
+                    console.log($scope.student);
+                }
+            };
+        });
+    </script>
+</body>
+</html>
