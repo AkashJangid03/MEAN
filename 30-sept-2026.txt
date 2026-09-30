@@ -1,0 +1,51 @@
+30-sept-2026
+
+server side rendering (MPA) vs client side rendering (SPA)
+mpa:
+servcer builds fukk html page for every request 
+php, jsp ASP, express +ejs other 
+
+SPA - one html page JavaScript updates parts of it with JSON 
+
+
+hybrid rendering: monolithic vs microservices 
+first page rendered on the server (Speed + seo) then the app behave like SPA  ex: angular universal (angular SSR), next js, nuxt
+example: UPI application
+
+---
+difference table
+points: structure, scaling, failure, complexity
+monolithic: one case base one deployment; scale whole app; one bug can stop app ; simple for samll aaps;
+Microservices: many small services; scale only the needed services; 
+---
+
+Agile: 
+iterative and incremental approach, work is split into short cycles. Each cycle delivers a small working piece of software reviewed by the customers and improved from feedback. 
+
+4 values of agile manifesto
+- individuals and iterations
+- working software 
+- customer collaboration 
+- responding to change 
+(what is call back)   
+
+while integrating somthing in team daily sprints(meetings) are required. - SCRUM 
+Scrum is most used Agile framework. 
+ex: 3 roles 5 events 3 artifacts 
+
+
+Water fall vs Agile 
+points: Approach, req, delivery, customer involvement, testing, risk, best for
+
+
+popular Agile framework: Scrum, Kanban, Extreme Programming(XP), Lean, Feature Driven Development(FDD), SAFe
+
+SCRUM Events - 
+sprint, sprint planning, daily scrum, sprint review, sprint retrospective
+(search - duration and purpose)
+
+SCRUM Roles- 
+
+
+
+git and GitHub 
