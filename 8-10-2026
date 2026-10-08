@@ -8,24 +8,46 @@ URL module
 Uploading Files 
 Event loop 
 Event Emitter 
-Callback's concept, Buffer, Streams, Nodejs Email, Packaging 
+Callback's concept, Buffer, Streams, Node.js Email, Packaging 
 ---
 
 Node.js = runtime env + JS library
-uses JS on the server 
+Uses JS on the server 
 npm
 
-generate dynamic pages content, 
-create open read write and delete close file on ther server 
-Node collect from data 
-add, delete modify data in you data base
-we will write separate methods for each
+Generate dynamic page content 
+Create open, read, write, delete, and close files on the server 
+Node collects data 
+Add, delete, modify data in your database
+We will write separate methods for each
 
 
-files contain tasks that will be executed on certain events
+Files contain tasks that will be executed on certain events
 typical event is someone trying to access a port on the server 
-node js files must be inintitaed on their server before having any effect 
+Node js files must be initiated on their server before having any effect 
 extension .js
+----
 
-features  : asynchronous and event driven, very fast, single threaded but highly scalable, no buffering 
+Features: asynchronous and event-driven, very fast, single-threaded but highly scalable, no buffering 
 
+----
+
+Node.js uses a single-threaded event loop architecture to handle multiple concurrent clients 
+
+---- 
+
+REPL commands: 
+.help , tab keys, up/down key, .save filename, .load filename, ctrl+c, ctlr+c(twice), ctrl+d, .break, .clear
+
+----
+
+Node.js Modules 
+- import required modules - we use the require directive to load Node.hs modules 
+- create server - a server which will listen to client's requests similar to Apache HTTP server 
+- Read request and return response 
+
+---- 
+- core modules 
+- local modules 
+- third party modules 
+---
