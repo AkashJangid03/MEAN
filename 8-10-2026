@@ -1,0 +1,31 @@
+node js
+
+Introduction 
+Modules
+HTTP module 
+File system
+URL module
+Uploading Files 
+Event loop 
+Event Emitter 
+Callback's concept, Buffer, Streams, Nodejs Email, Packaging 
+---
+
+Node.js = runtime env + JS library
+uses JS on the server 
+npm
+
+generate dynamic pages content, 
+create open read write and delete close file on ther server 
+Node collect from data 
+add, delete modify data in you data base
+we will write separate methods for each
+
+
+files contain tasks that will be executed on certain events
+typical event is someone trying to access a port on the server 
+node js files must be inintitaed on their server before having any effect 
+extension .js
+
+features  : asynchronous and event driven, very fast, single threaded but highly scalable, no buffering 
+
