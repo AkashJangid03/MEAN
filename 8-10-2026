@@ -89,7 +89,9 @@ C:\Users\mcasy3>npm install express
 added 68 packages in 2s
 28 packages are looking for funding
   run `npm fund` for details -->
+
 ---
+
 <!-- Run the server  -->
 let http = require('http');
 http.createServer(function(req, res) 
@@ -97,7 +99,9 @@ http.createServer(function(req, res)
     res.writeHead(200, {'Content-Type' : 'text/plain'});
     res.end('Hello class!');
 }).listen(8080);
+
 ---
+
 <!-- Write a simple module - we will create our local module 
 simple loggin moudle which logs the information   -->
 <!-- log.js -->
@@ -116,5 +120,21 @@ var log = {
 var logger = require('./log');
 logger.info('Node.js application created');
 logger.warning('Warning Message is here');
+
+---
+
+<!-- Creatig a module as a exported function -->
+<!-- person.js -->
+module.exports = function(firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.fullName = function() {
+        return this.firstName + " " + this.lastName;
+    }
+};
+<!-- message.js -->
+var person = require('./person');
+var person1 = new person("Akash", "Jangid");
+console.log(person1.fullName());
 logger.error("Error message is displayed here");
 ---
