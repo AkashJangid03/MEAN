@@ -51,3 +51,20 @@ Node.js Modules
 - local modules 
 - third party modules 
 ---
+
+#
+#
+#
+#
+#
+
+09-oct-2026
+
+node.js core modules 
+
+http - includes classesm mthods and events to create Node.js http server
+url - urlmodules includes methods for URL resolution and parsing
+querystring - querystring moduleincludes methods to deal with query string
+path - path modules includes methods to deal with file paths
+fs - fs module includes classesm methods and events work with file I/O
+util - util module includes utility functions useful for programming(useful classes and methods)
