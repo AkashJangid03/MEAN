@@ -68,3 +68,53 @@ querystring - querystring moduleincludes methods to deal with query string
 path - path modules includes methods to deal with file paths
 fs - fs module includes classesm methods and events work with file I/O
 util - util module includes utility functions useful for programming(useful classes and methods)
+
+to use any of these we need to include them in our code using require() method. 
+For example, to use the http module, we can write:
+const http = require('http');
+
+<!-- os.js -->
+const os = require('os');
+console.log('Operating System Info:');
+console.log('Platform:', os.platform());
+<!-- PS Z:\NodeJS> node os.js
+Operating System Info:
+Platform: win32 -->
+
+<!-- to run the code, save it in a .js file (e.g., osInfo.js) and run it using the command:
+node osInfo.js -->
+---
+<!-- Install Express.js
+C:\Users\mcasy3>npm install express
+added 68 packages in 2s
+28 packages are looking for funding
+  run `npm fund` for details -->
+---
+<!-- Run the server  -->
+let http = require('http');
+http.createServer(function(req, res) 
+{
+    res.writeHead(200, {'Content-Type' : 'text/plain'});
+    res.end('Hello class!');
+}).listen(8080);
+---
+<!-- Write a simple module - we will create our local module 
+simple loggin moudle which logs the information   -->
+<!-- log.js -->
+var log = {
+    info: function(info) {
+        console.log('Info: ' + info);
+    },
+    warning: function (warning) {
+        console.log('Warning: '+ warning);
+    },
+    error: function(error) {
+        console.log('Error: '+error);
+    }
+}; module.exports = log;
+<!-- logapp.js -->
+var logger = require('./log');
+logger.info('Node.js application created');
+logger.warning('Warning Message is here');
+logger.error("Error message is displayed here");
+---
